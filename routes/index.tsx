@@ -43,7 +43,7 @@ export default function Home(props: PageProps<{albums: Album[], query: string}>)
       </form>
       <ul class="grid sm:grid-cols-2 md:grid-cols-3 mt-8 gap-2">
         {albums.map((album) => (
-          <AlbumCard album={album} />
+          <AlbumCard album={album} key={album.id}/>
         ))}
       </ul>
     </div>
