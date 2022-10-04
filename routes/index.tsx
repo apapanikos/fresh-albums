@@ -1,8 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { h } from "preact";
 import AlbumCard from "../components/AlbumCard.tsx";
+import { Album } from "../utils/types.ts";
 
-export const handler: Handlers<{albums: any[], query: string}> = {
+export const handler: Handlers<{albums: Album[], query: string}> = {
   async GET(req, ctx) {
     const url = new URL(req.url);
     const query = url.searchParams.get("q") || "";
@@ -18,7 +19,7 @@ export const handler: Handlers<{albums: any[], query: string}> = {
   }
 }
 
-export default function Home(props: PageProps<{albums: any[], query: string}>) {
+export default function Home(props: PageProps<{albums: Album[], query: string}>) {
   const { albums, query } = props.data;
 
   return (
