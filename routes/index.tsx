@@ -1,6 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { h } from "preact";
 import AlbumCard from "../components/AlbumCard.tsx";
+import Header from "../components/Header.tsx";
 import { Album } from "../utils/types.ts";
 
 export const handler: Handlers<{albums: Album[], query: string}> = {
@@ -24,17 +25,7 @@ export default function Home(props: PageProps<{albums: Album[], query: string}>)
 
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <img
-        src="/logo.svg"
-        class="w-32 h-32"
-        alt="the fresh logo: a sliced lemon dripping with juice"
-      />
-      <div class="my-6">
-        <h2 class="text-4xl mb-2 font-black">
-          Welcome to `fresh` albums repository.
-        </h2>
-        <p class="text-lg text-gray-500 font-semibold">You can search for albums by name.</p>
-      </div>
+      <Header />
       <form class = "flex w-full gap-2" method="GET">
         <input
           class = "flex-grow w-full shadow-sm focus:outline-none focus:ring-2 focus:border-transparent focus-visible:ring-green-300 focus:ring-green-300 focus:border-green-300 block sm:text-lg border-1 rounded-md p-3"
