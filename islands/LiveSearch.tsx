@@ -8,9 +8,16 @@ export default function LiveSearch() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    let isCanceleled = false;
     fetch(`https://jsonplaceholder.typicode.com/albums?q=${encodeURIComponent(query)}`)
       .then((res) => res.json())
-      .then((albums) => setAlbums(albums));
+      .then((albums) => {
+        if (!isCanceleled) {
+          setAlbums(albums);
+        }
+      });
+
+      return () => {isCanceleled = true}
     }, [query]);
 
     return (
