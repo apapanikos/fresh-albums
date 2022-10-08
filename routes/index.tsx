@@ -1,5 +1,4 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { h } from "preact";
 import AlbumCard from "../components/AlbumCard.tsx";
 import Header from "../components/Header.tsx";
 import { Album } from "../utils/types.ts";
